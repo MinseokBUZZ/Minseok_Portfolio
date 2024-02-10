@@ -41,7 +41,7 @@ const Home = () => {
       <div className="home-text">
         <h1>
           <span className='gradientText'>
-            Hi, I'm Lorem!
+            Hi, I'm Minseok Shim!
           </span>
           <span>
             <span onClick={handleChange}>

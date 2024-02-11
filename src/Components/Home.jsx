@@ -7,6 +7,7 @@ import { animateScroll } from 'react-scroll';
 import { saveAs } from "file-saver";
 import { Link } from 'react-scroll';
 import updatedCV from './Updated_CV.pdf';
+import profileImage from './LinkedIn_Profile.jpg';
 
 const Home = () => {
   const [number, setNumber] = useState(0);
@@ -39,8 +40,8 @@ const Home = () => {
             Hi, I'm Minseok Shim!
           </span>
           <span>
-            <span onClick={handleChange}>
-              👋🏾
+          <span onClick={handleChange}>
+            👋
             </span>
             <span ref={textContent} style={{ display: 'none' }}>
               Tap again
@@ -66,7 +67,8 @@ const Home = () => {
 
         </div>
       </div>
-
+ {/* Display your profile image here */}
+ <img src={profileImage} alt="Profile" style={{ width: '270px', height: '270px', borderRadius: '50%' }} />
     </div >
   )
 }

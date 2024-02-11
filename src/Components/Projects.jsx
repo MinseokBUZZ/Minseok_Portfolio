@@ -5,19 +5,24 @@ import "../styles/Projects.css";
 const Projects = () => {
   const projectsInfo = [
     {
-      name: "Project 1",
-      desc: "congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed",
-      liveLink: "website url",
-      githubLink: "https://github.com/",
-      techs: ["HTML", "CSS", "TypeScript"],
+      name: "PetLinker",
+      desc: "The app provides a straightforward and efficient interface for shelter staff, allowing them to manage pet information with ease.",
+      githubLink: "https://github.com/MinseokBUZZ/PetLinker",
+      techs: ["Swift"],
       isOpenSource: true,
     },
     {
-      name: "Project 2",
-      desc: "congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed",
-      liveLink: "website url",
-      githubLink: "https://github.com/",
-      techs: ["React", "Node", "MongoDB", "Socket.io", "Redux"],
+      name: "BookStoreApp",
+      desc: "Introduction For our Azure Project, we had to finish development of a bookstore web application and finally publish and host it by using Azure. We separated our tasks between domains, one for authors, one for books, and one for authentication/authorization.",
+      githubLink: "https://github.com/Eli293/BookStoreApp",
+      techs: ["C#", "HTML"],
+      isOpenSource: true,
+    },
+    {
+      name: "Mini Golf Game",
+      desc: "This is the final project to show what we learned during Gaming with unity class",
+      githubLink: "https://github.com/RichardDanon/Final_Game_Project",
+      techs: ["C#"],
       isOpenSource: true,
     },
   ];

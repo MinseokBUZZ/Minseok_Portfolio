@@ -58,8 +58,8 @@
 .react:hover {
 	--skill-color: #00d8ff;
 }
-.node:hover {
-	--skill-color: #539e43;
+.csharp:hover {
+	--skill-color: #008000;
 }
 .fig:hover {
 	--skill-color: #a259ff;
@@ -69,6 +69,9 @@
 }
 .fire:hover {
 	--skill-color: #eeab37;
+}
+.docker:hover {
+	--skill-color: #1F51FF;
 }
 
 @media only screen and (max-width: 600px) {

@@ -32,7 +32,7 @@ const Nav = ({ isDarkMode, handleToggle }) => {
       <div className={`header ${!isDarkMode ?'light' : ''}`}>
         <h1>
           <Link activeClass="active" to="home" spy={true} smooth={true} offset={-80} duration={500}>
-            Favour
+            Minseok's Portfolio
           </Link>
         </h1>
         

@@ -73,7 +73,12 @@
 .docker:hover {
 	--skill-color: #1F51FF;
 }
-
+.java:hover{
+	--skill-color: #D27D2D;
+}
+.python:hover{
+	--skill-color: #6082B6;
+}
 @media only screen and (max-width: 600px) {
 	:root {
 		--container-width: 500px;

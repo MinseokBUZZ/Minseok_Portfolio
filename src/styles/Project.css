@@ -87,7 +87,7 @@
 	place-items: center;
 	top: 0;
 	left: var(--blob-left);
-	font-size: calc(var(--project-width) / 26);
+	font-size: calc(var(--project-width) / 20);
 	text-align: center;
 }
 

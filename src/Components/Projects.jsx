@@ -25,6 +25,13 @@ const Projects = () => {
       techs: ["C#"],
       isOpenSource: true,
     },
+    {
+      name: "CanadaWideCarParts",
+      desc: "This is External Client Project (E-commerce Website) and builds based on the requirements of our external client.",
+      githubLink: "https://github.com/ayasophya/CWCP",
+      techs: ["C#", "Java", "JavaScript", "HTML", "CSS"],
+      isOpenSource: true,
+    }
   ];
   return (
     <div className="Projects" id="projects">

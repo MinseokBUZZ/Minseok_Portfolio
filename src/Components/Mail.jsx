@@ -20,22 +20,18 @@ const Mail = () => {
   const formResMsg = useRef()
 
   const validation = (email, name, message, subject) => {
-    const acceptedEmail = ['gmail.com', 'yahoo.com', 'yahoo.co.in', 'outlook.com', 'protonmail.com', 'aol.com', 'icloud.com', 'me.com', 'mac.com', 'gmx.com', 'hey.com']
     if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
-      acceptedEmail.includes(email.split('@')[1]) ?
-        valid.email = true : valid.email = false
+      valid.email = true;
     } else {
       valid.email = false;
     }
-
-    if (name !== '' && subject !== '' && message.length > 100) {
+  
+    if (name !== '' && subject !== '' && message !== '') {
       valid.rest = true;
-      console.log('here')
     } else {
       valid.rest = false;
     }
   }
-
   const reset = () => {
     setToSend({
       subject: '',
@@ -51,16 +47,17 @@ const Mail = () => {
     if (!condition) {
       error.current.style.display = 'block'
     } else {
-      // Using email.js to send emails https://www.emailjs.com/docs/sdk/installation/
-      // use .env to store ids and keys from email.js
-      // emailjs.send(serviceID, templateID, toSend, publicKey)
-      //   .then((response) => {
-      //     formResMsg.current.innerText = "Message sent..."
-      //     reset();
-      //   }, (err) => {
-      //     formResMsg.current.innerText = "Failed... " + err.text
-      // });
-      // error.current.style.display = 'none'
+      const serviceID = 'service_lfczy5a';
+      const templateID = 'template_2ooqvd1';
+      const publicKey = 'tEokSZpr6kN1yk_af';
+      emailjs.send(serviceID, templateID, toSend, publicKey)
+        .then((response) => {
+          formResMsg.current.innerText = "Message sent..."
+          reset();
+        }, (err) => {
+          formResMsg.current.innerText = "Failed... " + err.text
+      });
+      error.current.style.display = 'none'
     }
   }
 

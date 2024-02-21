@@ -6,7 +6,7 @@ import TypeWriterEffect from 'react-typewriter-effect';
 import { animateScroll } from 'react-scroll';
 import { saveAs } from "file-saver";
 import { Link } from 'react-scroll';
-import updatedCV from './Updated_CV.pdf';
+import updatedCV from './Minseok_Shim.pdf';
 import profileImage from './LinkedIn_Profile.jpg';
 
 const Home = () => {
@@ -63,11 +63,10 @@ const Home = () => {
             Hire Me
           </Link>
 
-          <a href={updatedCV} download="Minseok_Shim_Updated_CV.pdf" className='btn2'>View Resume</a>
+          <a href={updatedCV} download="Minseok_Shim_CV.pdf" className='btn2'>View Resume</a>
 
         </div>
       </div>
- {/* Display your profile image here */}
  <img src={profileImage} alt="Profile" style={{ width: '270px', height: '270px', borderRadius: '50%' }} />
     </div >
   )

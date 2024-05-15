@@ -1,96 +1,84 @@
 :root {
-	--skill-color: black;
-  --skill-color-light: #6253e8;
-	--container-width: 600px;
-	--skill-size: calc(var(--container-width) / 5);
+    --skill-color: black;
+    --skill-color-light: #6253e8;
+    --container-width: 600px;
+    --skill-size: calc(var(--container-width) / 5);
 }
 
 .skills {
-	width: var(--container-width);
+    width: var(--container-width);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start; 
+    padding: 10px; 
 }
 
 .skill {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+.js:hover { --skill-color: #fddd00; }
+.html:hover { --skill-color: #f1662a; }
+.css:hover, .ts:hover { --skill-color: #1572b6; }
+.react:hover { --skill-color: #00d8ff; }
+.csharp:hover { --skill-color: #008000; }
+.fig:hover { --skill-color: #a259ff; }
+.mon:hover { --skill-color: #41a247; }
+.fire:hover { --skill-color: #eeab37; }
+.docker:hover { --skill-color: #1F51FF; }
+.java:hover { --skill-color: #D27D2D; }
+.python:hover { --skill-color: #6082B6; }
+
 .skill div {
-	margin-right: 20px;
-	margin-bottom: 20px;
-	min-height: var(--skill-size);
-	width: var(--skill-size);
-	background-color: #ffffffe6;
-	display: grid;
-	place-items: center;
-	padding: 5px;
-	border-radius: 20px;
+    margin-right: 10px; 
+    margin-bottom: 10px;
+    min-height: var(--skill-size);
+    width: var(--skill-size);
+    background-color: #ffffffe6;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .skill p {
-	color: var(--skill-color);
-	font-weight: 600;
-	margin-bottom: -2px;
+    color: var(--skill-color);
+    font-weight: 600;
 }
 
 .skill div svg {
-	min-height: calc(var(--skill-size) - 40px);
-	width: calc(var(--skill-size) - 40px);
-	color: var(--skill-color);
-	transition: all 390ms ease-in-out;
-	margin-bottom: -5px;
+    min-height: calc(var(--skill-size) - 40px);
+    width: calc(var(--skill-size) - 40px);
+    color: var(--skill-color);
+    transition: all 390ms ease-in-out;
 }
 
-.light .skill svg {
-	color: var(--skill-color-light);
-	transition: all 0.5s;
-  }
-
-.js:hover {
-	--skill-color: #fddd00;
-}
-.html:hover {
-	--skill-color: #f1662a;
-}
-.css:hover,
-.ts:hover {
-	--skill-color: #1572b6;
-}
-.react:hover {
-	--skill-color: #00d8ff;
-}
-.csharp:hover {
-	--skill-color: #008000;
-}
-.fig:hover {
-	--skill-color: #a259ff;
-}
-.mon:hover {
-	--skill-color: #41a247;
-}
-.fire:hover {
-	--skill-color: #eeab37;
-}
-.docker:hover {
-	--skill-color: #1F51FF;
-}
-.java:hover{
-	--skill-color: #D27D2D;
-}
-.python:hover{
-	--skill-color: #6082B6;
-}
 @media only screen and (max-width: 600px) {
-	:root {
-		--container-width: 500px;
-	}
+    :root {
+        --container-width: 500px;
+        --skill-size: calc(var(--container-width) / 5);
+    }
 }
+
 @media only screen and (max-width: 500px) {
-	:root {
-		--container-width: 380px;
-	}
+    :root {
+        --container-width: 380px;
+        --skill-size: calc(var(--container-width) / 5);
+    }
 }
-@media only screen and (max-width: 350px) {
-	:root {
-		--container-width: 300px;
-	}
+
+@media only screen and (max-width: 460px) {
+    :root {
+        --container-width: 300px; 
+        --skill-size: calc(var(--container-width) / 5); 
+    }
+    .skills {
+        justify-content: start;
+        padding: 5px; 
+    }
+    .skill div {
+        margin-right: 5px; 
+        margin-bottom: 5px;
+    }
 }

@@ -12,6 +12,7 @@ import Socials from './Components/Socials';
 import About from './Components/About';
 import Skills from './Components/Skills';
 import Mail from './Components/Mail';
+import EducationExperience from './Components/EducationExperience';
 
 // icon
 import { CgArrowLongUp } from 'react-icons/cg';
@@ -32,6 +33,9 @@ function App() {
       <div className={`dark ${!isDarkMode ?'light' : ''}`}>
         <Fade fraction={.2} triggerOnce>
           <Projects />
+        </Fade>
+        <Fade fraction={.2} triggerOnce>
+         <EducationExperience />
         </Fade>
         <Fade fraction={.2} triggerOnce>
           <Socials />

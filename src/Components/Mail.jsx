@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
-import '../styles/Mail.css'
+import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import '../styles/Mail.css';
 
 import emailjs from '@emailjs/browser';
 
 const Mail = () => {
+  const { t } = useTranslation();
   const radio = useRef();
   const [toSend, setToSend] = useState({
     subject: '',
@@ -15,9 +17,9 @@ const Mail = () => {
   const valid = {
     email: false,
     rest: false
-  }
-  const error = useRef()
-  const formResMsg = useRef()
+  };
+  const error = useRef();
+  const formResMsg = useRef();
 
   const validation = (email, name, message, subject) => {
     if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
@@ -25,41 +27,53 @@ const Mail = () => {
     } else {
       valid.email = false;
     }
-  
+
     if (name !== '' && subject !== '' && message !== '') {
       valid.rest = true;
     } else {
       valid.rest = false;
     }
-  }
+  };
   const reset = () => {
     setToSend({
-      subject: '',
-      name: '',
-      email: '',
-      message: ''
-    })
-  }
+        subject: '',
+        name: '',
+        email: '',
+        message: ''
+    });
+    // Additionally, ensure radio buttons and other input fields are manually reset if needed
+    const radios = document.getElementsByName("subject");
+    radios.forEach(radio => radio.checked = false); // Uncheck all radios
+    // Reset the 'Other' input field directly if not managed by the above state
+    const otherInput = document.getElementById('other');
+    if (otherInput) {
+        otherInput.value = '';
+    }
+};
 
   const handleClick = () => {
     validation(toSend.email, toSend.name, toSend.message, toSend.subject);
-    const condition = Object.values(valid).every((value) => value === true)
+    const condition = Object.values(valid).every((value) => value === true);
     if (!condition) {
-      error.current.style.display = 'block'
+      error.current.style.display = 'block';
+      error.current.innerText = t("Error");
     } else {
       const serviceID = 'service_lfczy5a';
       const templateID = 'template_2ooqvd1';
       const publicKey = 'tEokSZpr6kN1yk_af';
       emailjs.send(serviceID, templateID, toSend, publicKey)
         .then((response) => {
-          formResMsg.current.innerText = "Message sent..."
+          formResMsg.current.innerText = t("Message Sent");
           reset();
+          setTimeout(() => {  // Set a timeout to clear the message
+            formResMsg.current.innerText = "";
+          }, 3000);  // Clear after 5 seconds
         }, (err) => {
-          formResMsg.current.innerText = "Failed... " + err.text
-      });
-      error.current.style.display = 'none'
+          formResMsg.current.innerText = t("Failed") + err.text;
+        });
+      error.current.style.display = 'none';
     }
-  }
+};
 
 
   const handleChange = (e) => {
@@ -67,85 +81,61 @@ const Mail = () => {
   };
 
   useEffect(() => {
-    const arrayOfSub = ['work', 'chat', 'collaboration']
+    const arrayOfSub = ['work', 'chat', 'collaboration'];
     if (toSend.subject === '') {
-      setIsDisabled(false)
+      setIsDisabled(false);
     } else {
       if (!(arrayOfSub.includes(toSend.subject))) {
         radio.current.checked = false;
-        setIsDisabled(true)
+        setIsDisabled(true);
       }
     }
-  }, [toSend.subject])
+  }, [toSend.subject]);
 
   return (
     <div className='mail' id='mail'>
-      <h2>Get In Touch</h2>
+      <h2>{t("Get In Touch")}</h2>
       <div>
         <div className='entry'>
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">{t("Name")}</label>
             <input type="text" name="name" autoComplete='off' value={toSend.name} onChange={handleChange} />
           </div>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t("Email")}</label>
             <input type="email" name="email" autoComplete='off' value={toSend.email} onChange={handleChange} />
           </div>
           <div className='options'>
+            {["work", "collaboration", "chat"].map(subject => (
+              <div key={subject}>
+                <input
+                  type="radio"
+                  name="subject"
+                  value={subject}
+                  id={subject}
+                  checked={toSend.subject === subject}
+                  onChange={handleChange}
+                  ref={radio}
+                  disabled={isDisabled}
+                />
+                <label htmlFor={subject}>{t(subject)}</label>
+              </div>
+            ))}
             <div>
-              <input
-                type="radio"
-                name="subject"
-                value='work'
-                id="work"
-                checked={toSend.subject === 'work'}
-                onChange={handleChange}
-                ref={radio}
-                disabled={isDisabled}
-              />
-              <label htmlFor="work">Work</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="subject"
-                value="collaboration"
-                id="collaboration"
-                checked={toSend.subject === 'collaboration'}
-                onChange={handleChange}
-                ref={radio}
-                disabled={isDisabled}
-              />
-              <label htmlFor="collaboration">Collaboration</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="subject"
-                value="chat"
-                id='chat'
-                checked={toSend.subject === 'chat'}
-                onChange={handleChange}
-                ref={radio}
-                disabled={isDisabled}
-              />
-              <label htmlFor="chat">Coffee Chat</label>
-            </div>
-            <div>
-              <input type="text" name="subject" id='other' placeholder='Other' autoComplete='off' onChange={handleChange} />
+              <input type="text" name="subject" id='other' placeholder={t('Other')} autoComplete='off' onChange={handleChange} />
             </div>
           </div>
           <div>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t("Message")}</label>
             <textarea name="message" cols="30" rows="10" value={toSend.message} onChange={handleChange}></textarea>
           </div>
-          <p style={{ color: 'red !important', display: 'none' }} ref={error}>Something is missing</p>
-          <p style={{ color: 'red !important' }} ref={formResMsg}></p>
-          <div className='btn' onClick={handleClick}>Send Message</div>
+          <p style={{ color: 'red', display: 'none' }} ref={error}></p>
+          <p style={{ color: 'red' }} ref={formResMsg}></p>
+          <div className='btn' onClick={handleClick}>{t("Send Message")}</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Mail
+export default Mail;

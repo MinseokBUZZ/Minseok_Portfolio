@@ -1,13 +1,14 @@
-import React from 'react'
-
-import '../styles/Skills.css'
-
-import { SiJavascript, SiHtml5, SiCss3, SiReact, SiJava, SiFigma, SiMongodb, SiFirebase, SiCsharp, SiPython, SiDocker } from 'react-icons/si'
+import React from 'react';
+import '../styles/Skills.css';
+import { useTranslation } from 'react-i18next';
+import { SiJavascript, SiHtml5, SiCss3, SiReact, SiJava, SiFigma, SiMongodb, SiFirebase, SiCsharp, SiPython, SiDocker } from 'react-icons/si';
 
 const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='skills'>
-      <h2>My Skills</h2>
+      <h2>{t('My Skills')}</h2>
       <div className="skill">
         <div className="js">
           <SiJavascript />
@@ -55,7 +56,7 @@ const Skills = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Skills;

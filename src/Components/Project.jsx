@@ -1,11 +1,14 @@
-import React from 'react'
-import '../styles/Project.css'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import '../styles/Project.css';
 
 const Project = ({ name, desc, techs, githubLink, deployedLink, isOpenSource }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="project">
       <h2>{name}</h2>
-      <p>{desc}</p>
+      <p>{t(desc)}</p>
       <div className="tech-stack">
         {techs.map(item => <div key={item}>{item}</div>)}
       </div>
@@ -15,9 +18,7 @@ const Project = ({ name, desc, techs, githubLink, deployedLink, isOpenSource }) 
       </div>
       {isOpenSource && <div className="open">Open Source</div>}
     </div>
-  )
+  );
 }
 
-
 export default Project;
-

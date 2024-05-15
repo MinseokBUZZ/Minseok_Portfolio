@@ -3,6 +3,8 @@ import './styles/App.css';
 import { useState } from 'react';
 import { animateScroll } from 'react-scroll';
 import { Fade } from 'react-awesome-reveal';
+import './i18n';  // Path to your i18n configuration file
+import { useTranslation } from 'react-i18next';
 
 // components
 import Home from './Components/Home';
@@ -23,6 +25,8 @@ function App() {
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
   }
+
+  const { t } = useTranslation();
 
   return (
     <div className={`App ${!isDarkMode ?'light' : ''}`}>
@@ -54,7 +58,7 @@ function App() {
       </div>
       <div className={`dark ${!isDarkMode ?'light' : ''}`}>
         <Fade fraction={.2} triggerOnce>
-          <p>Thank you for scrolling!</p>
+        <p>{t('Thank you for scrolling!')}</p>;
           <div className='arrow' onClick={() => animateScroll.scrollToTop()}>
             <CgArrowLongUp />
           </div>

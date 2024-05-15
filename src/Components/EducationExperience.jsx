@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/EducationExperience.css'; 
 
 const EducationExperience = () => {
+    const { t } = useTranslation();
     const [view, setView] = useState('experience'); 
 
     const experiences = [
         {
-            role: "Full Stack Developer",
+            role: t("Full Stack Developer"),
             company: "Vector Networks",
-            period: "March 2024 - May 2024",
+            period: t("Period"),
             tasks: [
-            "Developed a Chrome extension named VIZOR Assets Lookup that interfaces with organizational APIs to verify and manage Chrome device assignments based on their serial numbers.", 
-            "Collarborated with my supervisor and other developers to create responsive and accessible Chrome extension."
-            
+                t("FirstTask"), 
+                t("SecondTask")
             ]
         }
     ];
@@ -30,22 +31,22 @@ const EducationExperience = () => {
         }
     ];
 
-    const toggleView = (view) => {
-        setView(view);
+    const toggleView = (viewType) => {
+        setView(viewType);
     };
 
     return (
         <div className='education-experience' id="education-experience">
-            <h2>{view.charAt(0).toUpperCase() + view.slice(1)}</h2>
+            <h2>{t(view)}</h2>
             <div className="toggle-buttons">
-                <button onClick={() => toggleView('experience')} className={view === 'experience' ? 'active' : ''}>Experience</button>
-                <button onClick={() => toggleView('education')} className={view === 'education' ? 'active' : ''}>Education</button>
+                <button onClick={() => toggleView('experience')} className={view === 'experience' ? 'active' : ''}>{t("experience")}</button>
+                <button onClick={() => toggleView('education')} className={view === 'education' ? 'active' : ''}>{t("education")}</button>
             </div>
             <div>
                 {view === 'experience' ? (
                     experiences.map((exp, index) => (
                         <div key={index} className="detail">
-                            <h3>{exp.role} - {exp.company}</h3>
+                            <h3>{exp.roleCompany}</h3>
                             <h4>{exp.period}</h4>
                             <ul>
                                 {exp.tasks.map((task, idx) => <li key={idx}>{task}</li>)}
@@ -58,7 +59,6 @@ const EducationExperience = () => {
                             <h3>{edu.degree}</h3>
                             <h4>{edu.school}</h4>
                             <p>{edu.period}</p>
-                            <p>{edu.description}</p>
                         </div>
                     ))
                 )}

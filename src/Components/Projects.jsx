@@ -6,7 +6,7 @@ const Projects = () => {
   const projectsInfo = [
     {
       name: "CanadaWideCarParts",
-      desc: "This is External Client Project (E-commerce Website) and builds based on the requirements of our external client.",
+      desc: "This project involves a team of four developing an e-commerce website for car parts, customized to meet an external client's specific requirements.",
       githubLink: "https://github.com/ayasophya/CWCP",
       techs: ["C#", "Java", "JavaScript", "HTML", "CSS"],
       isOpenSource: true, 
@@ -14,21 +14,21 @@ const Projects = () => {
     },
     {
       name: "PetLinker",
-      desc: "The app provides a straightforward and efficient interface for shelter staff, allowing them to manage pet information with ease.",
+      desc: "This is my individual project. The app offers a straightforward and efficient interface for shelter staff to easily manage pet information.",
       githubLink: "https://github.com/MinseokBUZZ/PetLinker",
       techs: ["Swift"],
       isOpenSource: true,
     },
     {
       name: "BookStoreApp",
-      desc: "Introduction For our Azure Project, we had to finish development of a bookstore web application and finally publish and host it by using Azure. We separated our tasks between domains, one for authors, one for books, and one for authentication/authorization.",
+      desc: "In our group of three, we developed and hosted a bookstore web application on Azure for our Azure Project, with tasks divided among domains for authors, books, and authentication/authorization.",
       githubLink: "https://github.com/Eli293/BookStoreApp",
       techs: ["C#", "HTML"],
       isOpenSource: true,
     },
     {
       name: "Mini Golf Game",
-      desc: "This is the final project to show what we learned during Gaming with unity class",
+      desc: "This is the final group project for our Gaming with Unity class, showcasing the skills we've learned.",
       githubLink: "https://github.com/RichardDanon/Final_Game_Project",
       techs: ["C#"],
       isOpenSource: true,

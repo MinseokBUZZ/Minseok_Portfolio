@@ -51,7 +51,7 @@ const Home = () => {
         <TypeWriterEffect
           cursorColor="#1da1f2"
           multiText={[
-            'Web Developer',
+            'Software Developer',
             "Don't Forget to Scroll"
           ]}
           multiTextLoop={true}

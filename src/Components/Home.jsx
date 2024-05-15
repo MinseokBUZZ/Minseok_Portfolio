@@ -5,7 +5,8 @@ import '../styles/Home.css'
 import TypeWriterEffect from 'react-typewriter-effect';
 import { animateScroll } from 'react-scroll';
 import { Link } from 'react-scroll';
-import updatedCV from './Minseok_Shim.pdf';
+import updatedCV from './Minseok_Shim_CV.pdf';
+import { saveAs } from "file-saver";
 import profileImage from './LinkedIn_Profile.jpg';
 
 const Home = () => {

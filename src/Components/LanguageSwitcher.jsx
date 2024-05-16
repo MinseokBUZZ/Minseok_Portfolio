@@ -2,22 +2,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language).then(() => {
-      console.log(`Language changed to ${language}`);
-    }).catch(err => {
-      console.error('Error changing language:', err);
-    });
-  };
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
+    };
 
-  return (
-    <div>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('fr')}>Français</button>
-    </div>
-  );
+    return (
+        <div className="language-switcher">
+            <div onClick={() => changeLanguage('en')}>EN</div>
+            <div onClick={() => changeLanguage('fr')}>FR</div>
+        </div>
+    );
 }
 
 export default LanguageSwitcher;

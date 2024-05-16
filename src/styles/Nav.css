@@ -72,6 +72,38 @@
     display: none;
 }
 
+.language-switcher {
+    padding-top: 0.18rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #FFF; /* Ensure the color matches the theme */
+}
+
+.language-switcher div {
+    padding: 0 10px; /* Adjust padding as necessary */
+    position: relative;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.language-switcher div:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFF;
+    padding-left: 10px; /* Ensure there's some spacing after the text */
+}
+
+.language-switcher div:hover {
+    color: #1da1f2; /* Change to your theme highlight color on hover */
+    text-decoration: underline; /* Adds an underline on hover */
+}
+
+
+
 @media only screen and (max-width: 800px) {
     :root {
         --padding-width: 2.5rem;

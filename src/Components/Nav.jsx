@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import LanguageSwitcher from './LanguageSwitcher'; // This imports correctly
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import LanguageSwitcher from './LanguageSwitcher'; 
+import { useTranslation } from 'react-i18next'; 
 
 import '../styles/Nav.css';
 
 const Nav = ({ isDarkMode, handleToggle }) => {
     const [isOpen, setIsOpen] = useState(true);
-    const { t } = useTranslation(); // Initialize translation function
+    const { t } = useTranslation(); 
 
     const handleClick = () => {
         setIsOpen(!isOpen);
@@ -40,7 +40,7 @@ const Nav = ({ isDarkMode, handleToggle }) => {
                 </div>
             </div>
             <div className='small' style={{ display: isOpen ? 'none' : 'flex' }}>
-                {/* Responsive part remains the same */}
+               
             </div>
         </div>
     );

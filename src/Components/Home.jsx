@@ -42,7 +42,7 @@ const Home = () => {
   };
 
   return (
-    <div key={i18n.language} className='home' id='home'> {/* Add key here to force re-render on language change */}
+    <div key={i18n.language} className='home' id='home'> 
       <div className="home-text">
         <h1>
           <span className='gradientText'>

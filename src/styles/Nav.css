@@ -78,13 +78,13 @@
     align-items: center;
     font-size: 1.2rem;
     cursor: pointer;
-    color: #FFF; /* Ensure the color matches the theme */
+    color: #FFF; 
 }
 
 .language-switcher div {
-    padding: 0 10px; /* Adjust padding as necessary */
+    padding: 0 10px; 
     position: relative;
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    transition: color 0.3s ease; 
 }
 
 .language-switcher div:not(:last-child)::after {
@@ -94,15 +94,13 @@
     top: 50%;
     transform: translateY(-50%);
     color: #FFF;
-    padding-left: 10px; /* Ensure there's some spacing after the text */
+    padding-left: 10px; 
 }
 
 .language-switcher div:hover {
-    color: #1da1f2; /* Change to your theme highlight color on hover */
-    text-decoration: underline; /* Adds an underline on hover */
+    color: #1da1f2; 
+    text-decoration: underline; 
 }
-
-
 
 @media only screen and (max-width: 800px) {
     :root {
